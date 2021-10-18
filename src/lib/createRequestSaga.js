@@ -20,6 +20,7 @@ const createRequestSaga = (type, request) => {
     } catch (e) {
       yield put({ type: FAILURE, payload: e, error: true });
     }
+    yield put(finishLoading(type));
   };
 };
 
