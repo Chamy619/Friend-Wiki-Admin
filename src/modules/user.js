@@ -1,9 +1,9 @@
 import { takeLatest } from 'redux-saga/effects';
-import createRequestSaga, { createReuqestActionTypes } from '../lib/createRequestSaga';
+import createRequestSaga, { createRequestActionTypes } from '../lib/createRequestSaga';
 import * as authAPI from '../lib/api/auth';
 
 const TEMP_SET_USER = 'user/TEMP_SET_USER';
-const [CHECK, CHECK_SUCCESS, CHECK_FAILURE] = createReuqestActionTypes('user/CHECK');
+const [CHECK, CHECK_SUCCESS, CHECK_FAILURE] = createRequestActionTypes('user/CHECK');
 
 export const tempSetUser = (user) => ({ type: TEMP_SET_USER, payload: user });
 export const check = () => ({ type: CHECK });
