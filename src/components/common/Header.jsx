@@ -5,6 +5,11 @@ import { styled } from '@mui/material/styles';
 
 const LinkButton = styled(Button)(() => ({
   color: '#f0f0f0',
+  '&.active': {
+    fontWeight: 800,
+    borderBottom: '3px solid #f0f0f0',
+    borderRadius: 0,
+  },
 }));
 
 function Header() {
