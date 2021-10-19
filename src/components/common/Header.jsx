@@ -12,13 +12,22 @@ const LinkButton = styled(Button)(() => ({
   },
 }));
 
-function Header() {
+function Header({ current, linking, items }) {
   return (
     <>
       <AppBar position="fixed">
         <Toolbar>
-          <LinkButton>유저 관리</LinkButton>
-          <LinkButton>나댐왕 관리</LinkButton>
+          {items.map((item) => (
+            <LinkButton
+              key={item.key}
+              onClick={() => {
+                linking(item);
+              }}
+              className={item.key === current ? 'active' : ''}
+            >
+              {item.text}
+            </LinkButton>
+          ))}
         </Toolbar>
       </AppBar>
       <Toolbar />

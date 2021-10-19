@@ -1,9 +1,9 @@
-import Header from '../components/common/Header';
+import HeaderContainer from '../containers/common/HeaderContainer';
 
 function UserPage() {
   return (
     <div>
-      <Header />
+      <HeaderContainer />
       유저 페이지입니다.
     </div>
   );
