@@ -5,34 +5,32 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import Button from '@mui/material/Button';
 
-function UserTable() {
+function UserTable({ list, error, modalOpen }) {
   return (
     <TableContainer component={Paper}>
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>이름</TableCell>
-            <TableCell>이메일</TableCell>
-            <TableCell>삭제</TableCell>
+            <TableCell align="center">이름</TableCell>
+            <TableCell align="center">이메일</TableCell>
+            <TableCell align="center">삭제</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          <TableRow>
-            <TableCell>양채훈</TableCell>
-            <TableCell>test@test.com</TableCell>
-            <TableCell>삭제버튼</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>양채훈</TableCell>
-            <TableCell>test@test.com</TableCell>
-            <TableCell>삭제버튼</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>양채훈</TableCell>
-            <TableCell>test@test.com</TableCell>
-            <TableCell>삭제버튼</TableCell>
-          </TableRow>
+          {list &&
+            list.map((row) => (
+              <TableRow key={row._id}>
+                <TableCell align="center">{row.username}</TableCell>
+                <TableCell align="center">{row.email}</TableCell>
+                <TableCell align="center">
+                  <Button variant="contained" color="error" onClick={() => modalOpen(row.username)}>
+                    삭제
+                  </Button>
+                </TableCell>
+              </TableRow>
+            ))}
         </TableBody>
       </Table>
     </TableContainer>
