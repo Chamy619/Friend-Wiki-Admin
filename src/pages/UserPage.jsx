@@ -1,10 +1,13 @@
 import HeaderContainer from '../containers/common/HeaderContainer';
+import UserTable from '../components/user/UserTable';
+import Title from '../components/common/Title';
 
 function UserPage() {
   return (
-    <div>
+    <div style={{ width: '100%' }}>
       <HeaderContainer />
-      유저 페이지입니다.
+      <Title text="사용자 정보" />
+      <UserTable />
     </div>
   );
 }
