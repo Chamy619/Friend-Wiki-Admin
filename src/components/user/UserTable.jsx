@@ -7,7 +7,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 
-function UserTable({ list, error, modalOpen }) {
+function UserTable({ list, modalOpen }) {
   return (
     <TableContainer component={Paper}>
       <Table>
