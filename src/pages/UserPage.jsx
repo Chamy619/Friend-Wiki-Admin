@@ -3,7 +3,7 @@ import Template from '../components/common/Template';
 
 function UserPage() {
   return (
-    <Template>
+    <Template title="사용자 관리">
       <UserContainer />
     </Template>
   );
