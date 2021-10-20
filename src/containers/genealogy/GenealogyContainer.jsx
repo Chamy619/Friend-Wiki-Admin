@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { list } from '../../modules/genealogy';
-import GenealogyTable from '../../components/genealogy/GenealogyTable';
+import Genealogy from '../../components/genealogy';
 
 function GenealogyContainer() {
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ function GenealogyContainer() {
     dispatch(list());
   }, [dispatch]);
 
-  return <GenealogyTable list={genealogyList} />;
+  return <Genealogy list={genealogyList} />;
 }
 
 export default GenealogyContainer;
