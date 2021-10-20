@@ -1,12 +1,11 @@
-import HeaderContainer from '../containers/common/HeaderContainer';
 import UserContainer from '../containers/user/UserContainer';
+import Template from '../components/common/Template';
 
 function UserPage() {
   return (
-    <div style={{ width: '100%' }}>
-      <HeaderContainer />
+    <Template>
       <UserContainer />
-    </div>
+    </Template>
   );
 }
 
