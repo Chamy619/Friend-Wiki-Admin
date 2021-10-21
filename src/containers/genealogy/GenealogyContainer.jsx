@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { list, initialForm, changeField, write, setForm, update } from '../../modules/genealogy';
+import { list, initialForm, changeField, write, setForm, update, removeKing } from '../../modules/genealogy';
 import Genealogy from '../../components/genealogy';
 
 function GenealogyContainer() {
@@ -12,6 +12,7 @@ function GenealogyContainer() {
     loading: loading['genealogy/LIST'],
   }));
   const [open, setOpen] = useState(false);
+  const [remove, setRemove] = useState(false);
 
   const showDialog = () => {
     setOpen(true);
@@ -19,6 +20,16 @@ function GenealogyContainer() {
 
   const closeDialog = () => {
     setOpen(false);
+    dispatch(initialForm());
+  };
+
+  const handleDeleteClick = (id) => {
+    dispatch(setForm(id));
+    setRemove(true);
+  };
+
+  const closeRemoveDialog = () => {
+    setRemove(false);
     dispatch(initialForm());
   };
 
@@ -41,6 +52,12 @@ function GenealogyContainer() {
     closeDialog();
   };
 
+  const handleRemove = () => {
+    dispatch(removeKing(form._id));
+    dispatch(list());
+    setRemove(false);
+  };
+
   useEffect(() => {
     dispatch(list());
   }, [dispatch]);
@@ -55,6 +72,10 @@ function GenealogyContainer() {
       form={form}
       handleDialogConfirm={handleDialogConfirm}
       handleUpdateClick={handleUpdateClick}
+      removeDialog={remove}
+      handleDeleteClick={handleDeleteClick}
+      closeRemoveDialog={closeRemoveDialog}
+      handleRemove={handleRemove}
     />
   );
 }

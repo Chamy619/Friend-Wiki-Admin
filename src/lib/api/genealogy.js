@@ -14,4 +14,4 @@ export const update = ({ id, name, date, description }) =>
     date,
     description,
   });
-export const remove = (id) => client.delete('/api/admin/genealogy');
+export const remove = (id) => client.delete(`/api/admin/genealogy/${id}`);

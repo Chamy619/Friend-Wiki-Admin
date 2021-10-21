@@ -1,6 +1,7 @@
 import AddButton from './AddButton';
 import GenealogyTable from './GenealogyTable';
 import FormDialog from './FormDialog';
+import DeleteDialog from './DeleteDialog';
 
 function Genealogy({
   list,
@@ -11,11 +12,15 @@ function Genealogy({
   form,
   handleDialogConfirm,
   handleUpdateClick,
+  removeDialog,
+  handleDeleteClick,
+  closeRemoveDialog,
+  handleRemove,
 }) {
   return (
-    <div>
+    <>
       <AddButton showDialog={showDialog} />
-      <GenealogyTable list={list} handleUpdateClick={handleUpdateClick} />
+      <GenealogyTable list={list} handleUpdateClick={handleUpdateClick} handleDeleteClick={handleDeleteClick} />
       <FormDialog
         open={open}
         closeDialog={closeDialog}
@@ -23,7 +28,8 @@ function Genealogy({
         form={form}
         handleDialogConfirm={handleDialogConfirm}
       />
-    </div>
+      <DeleteDialog open={removeDialog} onClose={closeRemoveDialog} form={form} handleRemove={handleRemove} />
+    </>
   );
 }
 
