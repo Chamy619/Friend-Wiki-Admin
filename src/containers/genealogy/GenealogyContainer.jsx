@@ -11,15 +11,14 @@ function GenealogyContainer() {
     form: genealogy.form,
     loading: loading['genealogy/LIST'],
   }));
-  const [addDialogOpen, setAddDialogOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
-  const showAddDialog = () => {
-    dispatch(initialForm());
-    setAddDialogOpen(true);
+  const showDialog = () => {
+    setOpen(true);
   };
 
-  const closeAddDialog = () => {
-    setAddDialogOpen(false);
+  const closeDialog = () => {
+    setOpen(false);
     dispatch(initialForm());
   };
 
@@ -30,7 +29,7 @@ function GenealogyContainer() {
   const addKing = () => {
     dispatch(write(form));
     dispatch(list());
-    setAddDialogOpen(false);
+    closeDialog();
   };
 
   useEffect(() => {
@@ -40,9 +39,9 @@ function GenealogyContainer() {
   return (
     <Genealogy
       list={genealogyList}
-      showAddDialog={showAddDialog}
-      addDialogOpen={addDialogOpen}
-      closeAddDialog={closeAddDialog}
+      showDialog={showDialog}
+      open={open}
+      closeDialog={closeDialog}
       handleChange={handleChange}
       form={form}
       addKing={addKing}

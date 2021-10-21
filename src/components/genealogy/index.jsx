@@ -1,19 +1,13 @@
 import AddButton from './AddButton';
 import GenealogyTable from './GenealogyTable';
-import AddDialog from './AddDialog';
+import FormDialog from './FormDialog';
 
-function Genealogy({ list, showAddDialog, addDialogOpen, closeAddDialog, handleChange, form, addKing }) {
+function Genealogy({ list, showDialog, open, closeDialog, handleChange, form, addKing }) {
   return (
     <div>
-      <AddButton showAddDialog={showAddDialog} />
+      <AddButton showDialog={showDialog} />
       <GenealogyTable list={list} />
-      <AddDialog
-        open={addDialogOpen}
-        closeAddDialog={closeAddDialog}
-        handleChange={handleChange}
-        form={form}
-        addKing={addKing}
-      />
+      <FormDialog open={open} closeDialog={closeDialog} handleChange={handleChange} form={form} addKing={addKing} />
     </div>
   );
 }

@@ -6,9 +6,9 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import Stack from '@mui/material/Stack';
 
-function AddDialog({ open, closeAddDialog, handleChange, form, addKing }) {
+function FormDialog({ open, closeDialog, handleChange, form, addKing }) {
   return (
-    <Dialog open={open} onClose={closeAddDialog} size="large">
+    <Dialog open={open} onClose={closeDialog} size="large">
       <DialogTitle sx={{ width: '550px' }}>나댐왕 정보</DialogTitle>
       <DialogContent>
         <Stack spacing={2} direction="column" sx={{ width: '100%', paddingTop: '8px' }}>
@@ -34,4 +34,4 @@ function AddDialog({ open, closeAddDialog, handleChange, form, addKing }) {
   );
 }
 
-export default AddDialog;
+export default FormDialog;
