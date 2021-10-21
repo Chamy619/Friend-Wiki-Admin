@@ -24,7 +24,6 @@ function GenealogyContainer() {
   };
 
   const handleChange = (event) => {
-    console.log(event.target.name, event.target.value);
     dispatch(changeField({ name: event.target.name, value: event.target.value }));
   };
 
