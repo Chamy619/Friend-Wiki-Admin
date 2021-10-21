@@ -12,11 +12,13 @@ function GenealogyTable({ list }) {
     <TableContainer component={Paper}>
       <Table>
         <TableHead>
-          <TableCell align="center">이름</TableCell>
-          <TableCell align="center">연도</TableCell>
-          <TableCell align="center">설명</TableCell>
-          <TableCell align="center">수정</TableCell>
-          <TableCell align="center">삭제</TableCell>
+          <TableRow>
+            <TableCell align="center">이름</TableCell>
+            <TableCell align="center">연도</TableCell>
+            <TableCell align="center">설명</TableCell>
+            <TableCell align="center">수정</TableCell>
+            <TableCell align="center">삭제</TableCell>
+          </TableRow>
         </TableHead>
         <TableBody>
           {list &&
