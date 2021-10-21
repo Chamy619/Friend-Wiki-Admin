@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import UserTable from './UserTable';
 import DeleteDialog from './DeleteDialog';
-import LoadingCircle from './LoadingCircle';
-import AlertMessage from './AlertMessage';
+import LoadingCircle from '../common/LoadingCircle';
+import AlertMessage from '../common/AlertMessage';
 
 function User({ list, error, loading, onDelete }) {
   const [open, setOpen] = useState(false);

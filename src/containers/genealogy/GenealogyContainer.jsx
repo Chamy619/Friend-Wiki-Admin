@@ -64,6 +64,8 @@ function GenealogyContainer() {
 
   return (
     <Genealogy
+      loading={loading}
+      error={error}
       list={genealogyList}
       showDialog={showDialog}
       open={open}

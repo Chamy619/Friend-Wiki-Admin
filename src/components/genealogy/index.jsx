@@ -2,8 +2,12 @@ import AddButton from './AddButton';
 import GenealogyTable from './GenealogyTable';
 import FormDialog from './FormDialog';
 import DeleteDialog from './DeleteDialog';
+import LoadingCircle from '../common/LoadingCircle';
+import AlertMessage from '../common/AlertMessage';
 
 function Genealogy({
+  loading,
+  error,
   list,
   showDialog,
   open,
@@ -17,6 +21,14 @@ function Genealogy({
   closeRemoveDialog,
   handleRemove,
 }) {
+  if (loading) {
+    return <LoadingCircle />;
+  }
+
+  if (error) {
+    return <AlertMessage />;
+  }
+
   return (
     <>
       <AddButton showDialog={showDialog} />
