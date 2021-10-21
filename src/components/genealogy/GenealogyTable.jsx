@@ -7,7 +7,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 
-function GenealogyTable({ list }) {
+function GenealogyTable({ list, handleUpdateClick }) {
   return (
     <TableContainer component={Paper}>
       <Table>
@@ -28,7 +28,9 @@ function GenealogyTable({ list }) {
                 <TableCell align="center">{item.date}</TableCell>
                 <TableCell>{item.description}</TableCell>
                 <TableCell align="center">
-                  <Button variant="contained">수정</Button>
+                  <Button variant="contained" onClick={() => handleUpdateClick(item._id)}>
+                    수정
+                  </Button>
                 </TableCell>
                 <TableCell align="center">
                   <Button variant="contained" color="error">

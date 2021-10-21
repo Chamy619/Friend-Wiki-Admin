@@ -6,7 +6,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import Stack from '@mui/material/Stack';
 
-function FormDialog({ open, closeDialog, handleChange, form, addKing }) {
+function FormDialog({ open, closeDialog, handleChange, form, handleDialogConfirm }) {
   return (
     <Dialog open={open} onClose={closeDialog} size="large">
       <DialogTitle sx={{ width: '550px' }}>나댐왕 정보</DialogTitle>
@@ -26,7 +26,7 @@ function FormDialog({ open, closeDialog, handleChange, form, addKing }) {
         </Stack>
       </DialogContent>
       <DialogActions>
-        <Button variant="contained" onClick={addKing}>
+        <Button variant="contained" onClick={handleDialogConfirm}>
           확인
         </Button>
       </DialogActions>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { list, initialForm, changeField, write } from '../../modules/genealogy';
+import { list, initialForm, changeField, write, setForm, update } from '../../modules/genealogy';
 import Genealogy from '../../components/genealogy';
 
 function GenealogyContainer() {
@@ -22,12 +22,21 @@ function GenealogyContainer() {
     dispatch(initialForm());
   };
 
+  const handleUpdateClick = (id) => {
+    dispatch(setForm(id));
+    showDialog();
+  };
+
   const handleChange = (event) => {
     dispatch(changeField({ name: event.target.name, value: event.target.value }));
   };
 
-  const addKing = () => {
-    dispatch(write(form));
+  const handleDialogConfirm = () => {
+    if (!form._id) {
+      dispatch(write(form));
+    } else {
+      dispatch(update({ ...form, id: form._id }));
+    }
     dispatch(list());
     closeDialog();
   };
@@ -44,7 +53,8 @@ function GenealogyContainer() {
       closeDialog={closeDialog}
       handleChange={handleChange}
       form={form}
-      addKing={addKing}
+      handleDialogConfirm={handleDialogConfirm}
+      handleUpdateClick={handleUpdateClick}
     />
   );
 }
